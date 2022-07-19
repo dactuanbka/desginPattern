@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bindBrand="http://schemas.android.com/tools"
+    xmlns:bindPower="http://schemas.android.com/tools"
+    xmlns:bindSeat="http://schemas.android.com/tools"
+    xmlns:bindtype="http://schemas.android.com/tools"
+    xmlns:bindFuel="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.example.baseproject.model.Car" />
+
+        <variable
+            name="myViewModel"
+            type="com.example.baseproject.viewModel.MyViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.MainActivity">
+
+        <TextView
+            android:id="@+id/txtWellCome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/well_come_to_car_manufacturer"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.464"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.081" />
+
+        <Button
+            android:id="@+id/btnMWSport"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="44dp"
+            android:onClick="@{(view)->myViewModel.solutionEventClick(model)}"
+            android:text="@string/MW_sport"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtWellCome" />
+
+        <Button
+            android:id="@+id/btnMWBusiness"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/MWbusiness"
+            android:onClick="@{(view)->myViewModel.solutionEventClick(model)}"
+            app:layout_constraintEnd_toEndOf="@+id/btnMWSport"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/btnMWSport"
+            app:layout_constraintTop_toBottomOf="@+id/btnMWSport" />
+
+        <Button
+            android:id="@+id/btnRRSport"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{(view)->myViewModel.solutionEventClick(model)}"
+            android:layout_marginStart="68dp"
+            android:layout_marginTop="44dp"
+            android:text="@string/RollRoycesport"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.185"
+            app:layout_constraintStart_toEndOf="@+id/btnMWSport"
+            app:layout_constraintTop_toBottomOf="@+id/txtWellCome" />
+
+        <Button
+            android:id="@+id/btnRRBusiness"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:onClick="@{(view)->myViewModel.solutionEventClick(model)}"
+            android:text="@string/RollRoycebusiness"
+            app:layout_constraintEnd_toEndOf="@+id/btnRRSport"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/btnRRSport"
+            app:layout_constraintTop_toBottomOf="@+id/btnRRSport" />
+
+        <TextView
+            android:id="@+id/txtName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.452"
+            bindBrand:text="@{model.brand}" />
+
+        <TextView
+            android:id="@+id/txtType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:gravity="center_horizontal"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="@+id/txtName"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/txtName"
+            app:layout_constraintTop_toBottomOf="@+id/txtName"
+            bindtype:text="@{model.typeCar.toString()}" />
+
+        <TextView
+            android:id="@+id/txtSeat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:gravity="center_horizontal"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="@+id/txtType"
+            app:layout_constraintStart_toStartOf="@+id/txtType"
+            app:layout_constraintTop_toBottomOf="@+id/txtType"
+            bindSeat:text="@{String.valueOf(model.seat)}" />
+        <TextView
+            android:id="@+id/txtPower"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:gravity="center_horizontal"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="@+id/txtSeat"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/txtSeat"
+            app:layout_constraintTop_toBottomOf="@+id/txtSeat"
+            bindPower:text="@{String.valueOf(model.power)}" />
+
+        <TextView
+            android:id="@+id/txtFuel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:gravity="center_horizontal"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="@+id/txtPower"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="@+id/txtPower"
+            app:layout_constraintTop_toBottomOf="@+id/txtPower"
+            bindFuel:text="@{String.valueOf(model.fuel)}"/>
+
+        <Button
+            android:id="@+id/btnMyStoreHouse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="@string/mystorehouse"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtFuel"
+            app:layout_constraintVertical_bias="1.0" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

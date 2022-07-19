@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Base Project</string>
+    <string name="well_come_to_car_manufacturer">Well come to Car Manufacturer!</string>
+    <string name="well_come_to_Store">Well come to Car Store!</string>
+    <string name="MW_sport">MW Sport</string>
+    <string name="MWsport">MWSport</string>
+    <string name="MWbusiness">MWBusiness</string>
+    <string name="RollRoycesport">RollRoyceSport</string>
+    <string name="RollRoycebusiness">RollRoyceBusiness</string>
+    <string name="type">Type</string>
+    <string name="name">Name</string>
+    <string name="seat">Seat</string>
+    <string name="power">Power</string>
+    <string name="mystorehouse">MyStoreHouse</string>
+    <string name="car_in_store">Car in Store</string>
+</resources>
